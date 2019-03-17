@@ -1,9 +1,14 @@
 import { connect } from 'react-redux';
 import App from './index.js';
 import { GET } from '../api';
-import { dataReceivedSuccess, dataReceivedError } from './actions';
+import { addSelectedGenre, dataReceivedSuccess, dataReceivedError, removeSelectedGenre } from './actions';
+import { selectableGenres, selectedMovies } from './selector';
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  genres: selectableGenres(state),
+  movies: selectedMovies(state), 
+  selectedGenres: state.selectedGenres
+});
 
 const mapDispatchToProps = dispatch => ({
   getData: async() => {
@@ -17,6 +22,13 @@ const mapDispatchToProps = dispatch => ({
     } catch (err) {
       dispatch(dataReceivedError(err));
     }
+  },
+  addSelectedGenre(genre) {
+    dispatch(addSelectedGenre(genre));
+  },
+
+  removeSelectedGenre(genre) {
+    dispatch(removeSelectedGenre(genre));
   }
 });
 

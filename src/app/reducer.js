@@ -1,5 +1,7 @@
 import {
   DATA_RECEIVED,
+  ADD_GENRE,
+  REMOVE_GENRE,
 } from './actions';
 
 const DEFAULT_STATE = {
@@ -10,10 +12,23 @@ const DEFAULT_STATE = {
 };
 
 const AppReducer = (state = DEFAULT_STATE, action) => {
+  const { payload } = action;
+
   switch(action.type) {
+    case ADD_GENRE:
+      return {
+        ...state,
+        selectedGenres: [...state.selectedGenres, payload.genre]
+      }; 
+
+    case REMOVE_GENRE: 
+      return {
+        ...state,
+        selectedGenres: state.selectedGenres.filter(selected => selected.id !== payload.genre.id)
+      };
+
     case DATA_RECEIVED: 
       const { payload: { movies, genreList, config }} = action;
-
       const posterInfo = {
         basePath: config.images.base_url,
         posterSize:config.images.poster_sizes[4],

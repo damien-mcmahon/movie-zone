@@ -1,5 +1,21 @@
 export const DATA_RECEIVED = 'DATA_RECEIVED';
 export const DATA_RECEIVED_ERROR = 'DATA_RECEIVED_ERROR';
+export const REMOVE_GENRE = 'REMOVE_GENRE';
+export const ADD_GENRE = 'ADD_GENRE';
+
+export const addSelectedGenre = genre => ({
+  type: ADD_GENRE,
+  payload: {
+    genre
+  }
+});
+
+export const removeSelectedGenre = genre => ({
+  type: REMOVE_GENRE,
+  payload: {
+    genre
+  }
+});
 
 export const dataReceivedSuccess = (movies, genreList, config) => ({
   type: DATA_RECEIVED, 
