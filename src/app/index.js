@@ -15,15 +15,28 @@ class App extends Component {
 
   render() {
     const { props } = this;
-    const { addSelectedGenre, genres, movies, removeSelectedGenre, selectedGenres } = props;
+    const { 
+      addSelectedGenre, 
+      clearRating, 
+      genres, 
+      movies, 
+      ratingFilter,
+      removeSelectedGenre, 
+      selectedGenres, 
+      setRatingFilter 
+    } = props;
 
     return (
       <div className="App">
-      <FilterControls 
-        onAddGenre={genre => addSelectedGenre(genre)}
-        onRemoveGenre={genre => removeSelectedGenre(genre)}
-        genres={genres} 
-        selectedGenres={selectedGenres}/>
+        <FilterControls 
+          onAddGenre={genre => addSelectedGenre(genre)}
+          onRemoveGenre={genre => removeSelectedGenre(genre)}
+          onSetRating={rating => setRatingFilter(rating)}
+          onClearRating={() => clearRating()}
+          genres={genres} 
+          rating={ratingFilter}
+          selectedGenres={selectedGenres}/>
+
         <MovieList movies={movies} />
       </div>
     );

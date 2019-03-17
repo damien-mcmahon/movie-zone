@@ -1,13 +1,21 @@
 import { connect } from 'react-redux';
 import App from './index.js';
 import { GET } from '../api';
-import { addSelectedGenre, dataReceivedSuccess, dataReceivedError, removeSelectedGenre } from './actions';
+import { 
+  addSelectedGenre, 
+  clearRating,
+  dataReceivedSuccess, 
+  dataReceivedError, 
+  removeSelectedGenre,
+  setRatingFilter
+} from './actions';
 import { selectableGenres, selectedMovies } from './selector';
 
 const mapStateToProps = state => ({
   genres: selectableGenres(state),
   movies: selectedMovies(state), 
-  selectedGenres: state.selectedGenres
+  selectedGenres: state.selectedGenres,
+  ratingFilter: state.ratingFilter,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -29,6 +37,14 @@ const mapDispatchToProps = dispatch => ({
 
   removeSelectedGenre(genre) {
     dispatch(removeSelectedGenre(genre));
+  },
+
+  setRatingFilter(rating) {
+    dispatch(setRatingFilter(rating));
+  },
+
+  clearRating() {
+    dispatch(clearRating());
   }
 });
 

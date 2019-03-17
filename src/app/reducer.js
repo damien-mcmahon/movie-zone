@@ -2,6 +2,8 @@ import {
   DATA_RECEIVED,
   ADD_GENRE,
   REMOVE_GENRE,
+  SET_RATING,
+  CLEAR_RATING,
 } from './actions';
 
 const DEFAULT_STATE = {
@@ -26,6 +28,18 @@ const AppReducer = (state = DEFAULT_STATE, action) => {
         ...state,
         selectedGenres: state.selectedGenres.filter(selected => selected.id !== payload.genre.id)
       };
+
+    case SET_RATING: 
+      return {
+      ...state,
+      ratingFilter: payload.rating
+    }
+
+    case CLEAR_RATING: 
+      return {
+        ...state,
+        ratingFilter: null
+    };
 
     case DATA_RECEIVED: 
       const { payload: { movies, genreList, config }} = action;
