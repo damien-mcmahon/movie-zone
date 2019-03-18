@@ -22,19 +22,21 @@ export const selectedMovies = createSelector(
     });
 
     //return the list of movies when nothing selected
-    if (!selectedGenres.length) {
+    if (!selectedGenres.length && !ratingFilter) {
       return movies;
     }
 
+    let filtered = movies;
 
     //filter movies where one of the genre_ids is found in the list of selectedGenres
-
-    const filtered = movies.filter(({genre_ids}) => genre_ids.some(id => {
-      return selectedGenres.find(selectedGenre => selectedGenre.id === id);
-    }));
+    if (selectedGenres.length) {
+      filtered = movies.filter(({genre_ids}) => genre_ids.some(id => {
+        return selectedGenres.find(selectedGenre => selectedGenre.id === id);
+      }));
+    }
 
     return ratingFilter ? 
-      filtered.filter(({vote_average}) => vote_average >= ratingFilter) : filtered;
+      filtered.filter(({vote_average}) =>vote_average >= ratingFilter) : filtered;
   }
 );
 

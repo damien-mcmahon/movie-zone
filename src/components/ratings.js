@@ -14,6 +14,7 @@ const Ratings = ({currentRating, onSetRating, onClearRating, range}) => (
               type="radio" 
               onChange={() => onSetRating(index)} 
               name="rating" 
+              checked={currentRating === index}
               id={index}/>
             {index}
           </label>
