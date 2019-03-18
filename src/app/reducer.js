@@ -52,7 +52,7 @@ const AppReducer = (state = DEFAULT_STATE, action) => {
       //loop over the movies and do some transformations...
         movies.forEach(movie => {
           //create the path for the poster
-          movie.fullPosterPath = `${posterInfo.basePath}${posterInfo.posterSize}/${movie.poster_path}`;
+          movie.fullPosterPath = `${posterInfo.basePath}${posterInfo.posterSize}${movie.poster_path}`;
 
           movie.genre_ids.forEach(gId => {
             const genre = genreList.find(g => g.id === gId);
