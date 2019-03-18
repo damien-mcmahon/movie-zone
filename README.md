@@ -18,18 +18,18 @@ Here are some assumptions and choices I made given the brief:
 The first 90% of the work took 90% of the time, the remaining 10% would take a further 90%!
 
 Things that are missing (but I would add on any commercial project):  
-[ ] Libraries from NPM - I would normally use RXJS and Redux Observable plus lodash but didn't include them here.  
-[ ] Unit tests for selectors and library code.  
-[ ] End-to-End tests (using Cypress.io) for testing paths through the app.  
-[ ] Storybook - for component building and having a styleguide.  
-[ ] Code splitting - serving only the code needed when needed.  
-[ ] Performance enhancements - using `memo` or `shouldComponentUpdate`.  
-[ ] Server Side Rendering - Enable non-JS browsers to see something.  
-[ ] Finer attention to detail - I'd tweak breakpoints, lock down styling and improve things in the code.  
-[ ] X Browser testing - I'm happy working with any browser but am used to "Last 2 Versions" being standard these days.  
-[ ] Icons - We're not supposed to use IconFonts any more, I'm happy to include SVGs and use a library but didn't here.  
-[ ] Animations - Staggered loading of the posters, subtle useful animations where necessary.  
-[ ] Elements of delight - Some nice things to add that give the UI a personality.  
+- [ ] Libraries from NPM - I would normally use RXJS and Redux Observable plus lodash but didn't include them here.  
+- [ ] Unit tests for selectors and library code.  
+- [ ] End-to-End tests (using Cypress.io) for testing paths through the app.  
+- [ ] Storybook - for component building and having a styleguide.  
+- [ ] Code splitting - serving only the code needed when needed.  
+- [ ] Performance enhancements - using `memo` or `shouldComponentUpdate`.  
+- [ ] Server Side Rendering - Enable non-JS browsers to see something.  
+- [ ] Finer attention to detail - I'd tweak breakpoints, lock down styling and improve things in the code.  
+- [ ] X Browser testing - I'm happy working with any browser but am used to "Last 2 Versions" being standard these days.  
+- [ ] Icons - We're not supposed to use IconFonts any more, I'm happy to include SVGs and use a library but didn't here.  
+- [ ] Animations - Staggered loading of the posters, subtle useful animations where necessary.  
+- [ ] Elements of delight - Some nice things to add that give the UI a personality.  
 
 
 
