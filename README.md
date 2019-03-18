@@ -2,6 +2,9 @@
 This is my code for the test for Zone Digital. I've spent a good few hours on this but it's far from as good as I would
 like but I'm happy with it given the time spent.
 
+### ⚛️ [View the App here](https://movie-zone.now.sh/)
+
+
 ## Assumptions and decisions made
 Here are some assumptions and choices I made given the brief:
 
@@ -31,6 +34,8 @@ Things that are missing (but I would add on any commercial project):
 - [ ] Animations - Staggered loading of the posters, subtle useful animations where necessary.  
 - [ ] Elements of delight - Some nice things to add that give the UI a personality.  
 
+## How to run the app locally?
+There are instructions below from the Create React App Team that should get you going.
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
