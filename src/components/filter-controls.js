@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import SelectedFilters from '../components/selected-filters';
 import Rating from '../components/ratings';
 
 const FilterControls = ({
@@ -11,41 +12,16 @@ const FilterControls = ({
   rating,
   selectedGenres, 
 }) => {
-    const [{showFilters}, setState] = useState({showFilters: true});
+    const [{showFilters}, setState] = useState({showFilters: false});
 
     return (
-      <div className={`filter-controls__wrapper --${showFilters ? 'open' : 'closed'}`}>
-      <button className="filter-controls__toggle-options" onClick={() => setState({showFilters: ! showFilters})}>
-      MENU
-      </button>
-
-      {selectedGenres.length > 0 &&
-        <div className="filter-control__set-filters">
-          <h2>Showing Films with the genre of </h2>
-
-          {selectedGenres.map(selected => (
-            <span className="filter-controls__filter">
-              {selected.name}
-
-              <button 
-                key={selected.name}
-                onClick={() => onRemoveGenre(selected)} 
-                className="filter-controls__selected-genre">
-                X
-              </button>
-            </span>
-          ))}
-       </div> 
-      }
-
-      {rating &&
-        <div className="filter-control__rating-wrapper">
-          <h2>Showing films with a rating of {rating} or more</h2>
-        </div>
-      }
+      <div className="filter-controls__wrapper">
+        <button className="filter-controls__toggle-options" onClick={() => setState({showFilters: ! showFilters})}>
+        MENU
+        </button>
 
       {showFilters &&
-        <div className="filter-controls__add-filters">
+        <div className={`filter-controls__add-filters --${showFilters ? 'open' : 'closed'}`}>
           <div className="filter-controls__genre-filters">
             <h3 className="filter-controls__section-header">Genres</h3>
 
@@ -70,6 +46,21 @@ const FilterControls = ({
           </div>
         </div>
       }
+
+      <div className="filter-controls__info-wrapper">
+        {selectedGenres.length > 0 &&
+          <div className="filter-controls__set-filters">
+            <SelectedFilters filters={selectedGenres} onRemoveFilter={onRemoveGenre} />
+         </div> 
+        }
+
+        {rating &&
+          <div className="filter-controls__rating-wrapper">
+            <h2 className="filter-controls__rating-title">Filtering Ratings:</h2>
+            <span className="filter-controls__rating">{rating} +</span>
+          </div>
+        }
+      </div>
     </div>
   );
 

@@ -3,21 +3,17 @@ $tablet-bp: 600px;
 
 .filter-controls {
   &__wrapper {
-    padding: 10px;
-    margin: 0 0 20px;
+    margin: 0 0 25px;
     color: $filter-controls-colour;
-
-    &.--open {
-      background: hsla(0, 5%, 5%, .1);
-      border-top: 1px solid hsla(0, 10%, 10%, .2);
-      border-bottom: 1px solid hsla(0, 100%, 100%, .2);
-    }
+    position: relative;
+    padding: 20px 0 10px;
   }
 
   &__toggle-options {
     @extend %button;
     position: absolute;
-    right: 10px;
+    right: 20px;
+    top: 25px;
     color: $filter-controls-colour;
   }
 
@@ -26,6 +22,12 @@ $tablet-bp: 600px;
 
     @include mq($tablet-bp) {
       display: flex;
+    }
+
+    &.--open {
+      background: hsla(0, 5%, 5%, .1);
+      border-top: 1px solid hsla(0, 10%, 10%, .2);
+      border-bottom: 1px solid hsla(0, 100%, 100%, .2);
     }
   }
 
@@ -63,5 +65,32 @@ $tablet-bp: 600px;
 
   &__genre-checkbox {
     margin-right: 10px;
+  }
+
+  &__info-wrapper {
+    width: 100%;
+
+    @include mq($tablet-bp) {
+      display: flex;
+    }
+  }
+
+  &__set-filters {
+    @include mq($tablet-bp) {
+      flex: 1;
+    }
+  }
+
+  &__rating-wrapper {
+    padding: 0 10px;
+
+    @include mq($tablet-bp) {
+      flex: 1;
+    }
+  }
+
+  &__rating-title {
+    font-size: 16px;
+    margin-bottom: 10px;
   }
 }
