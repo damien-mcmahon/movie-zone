@@ -60,20 +60,16 @@ const AppReducer = (state = DEFAULT_STATE, action) => {
           });
         });
 
-        //sort the movies into popularity order
-        movies.sort((movieA, movieB) => {
-          const { popularity: popularityA } = movieA;
-          const { popularity: popularityB } = movieB;
-
-          if (popularityA === popularityB) {
-            return 0
-          }
-
-          return popularityA < popularityB ? 1 : -1;
-        });
-
         //turn the Set into an array
         const genres = Array.from(selectableGenres);
+        
+        //alphabetise the genres
+        genres.sort((genA, genB) => {
+          const { name: nameA } = genA;
+          const { name: nameB} = genB;
+
+          return nameA < nameB ? -1 : 1;
+        });
 
         return {
           ...state,

@@ -8,13 +8,27 @@ const getRating = ({ratingFilter}) => ratingFilter;
 export const selectedMovies = createSelector(
   [getMovies, getSelectedGenres, getRating], 
   (movies, selectedGenres, ratingFilter) => {
+    
+    //sort the movies into popularity order
+    movies.sort((movieA, movieB) => {
+      const { vote_average: ratingA } = movieA;
+      const { vote_average: ratingB } = movieB;
+
+      if (ratingA === ratingB) {
+        return 0
+      }
+
+      return ratingA < ratingB ? 1 : -1;
+    });
 
     //return the list of movies when nothing selected
     if (!selectedGenres.length) {
       return movies;
     }
 
+
     //filter movies where one of the genre_ids is found in the list of selectedGenres
+
     const filtered = movies.filter(({genre_ids}) => genre_ids.some(id => {
       return selectedGenres.find(selectedGenre => selectedGenre.id === id);
     }));
