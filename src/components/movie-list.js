@@ -8,7 +8,7 @@ const MovieList = ({movies}) => (
         <Movie info={movie} key={movie.id} />
       )
     ) : (
-      <h1>No Movies to Show</h1>
+      <h1 className="movie-list__empty">No Movies to Show</h1>
     )}
   </div>
 );
