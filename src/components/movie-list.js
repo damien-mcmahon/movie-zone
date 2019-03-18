@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Movie from '../components/movie.js';
 
 const MovieList = ({movies}) => (

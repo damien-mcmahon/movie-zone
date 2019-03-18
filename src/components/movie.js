@@ -29,13 +29,18 @@ const ratingBg = rating => {
 
 const Movie = ({info}) => (
   <div key={info.id} className="movie__wrapper">
-    <img 
-      className="movie__poster"
-      src={info.fullPosterPath} alt={`Movie Poster for ${info.title}`} />
+    <div className="movie__poster-wrapper">
+      <img 
+        className="movie__poster"
+        src={info.fullPosterPath} alt={`Movie Poster for ${info.title}`} />
+
+      <span 
+        className={`movie__rating --${ratingBg(info.vote_average)}`}>
+        {info.vote_average}
+      </span>
+    </div>
 
     <h1 className="movie__title">{info.title}</h1>
-
-    <p className={`movie__rating --${ratingBg(info.vote_average)}`}>{info.vote_average}</p>
   </div>
 );
 

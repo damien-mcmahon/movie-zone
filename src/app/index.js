@@ -27,7 +27,11 @@ class App extends Component {
     } = props;
 
     return (
-      <div className="App">
+      <div className="app__wrapper">
+        <header className="app__header">
+          <h1 className="app__title">Movie Zone</h1>
+        </header>
+
         <FilterControls 
           onAddGenre={genre => addSelectedGenre(genre)}
           onRemoveGenre={genre => removeSelectedGenre(genre)}

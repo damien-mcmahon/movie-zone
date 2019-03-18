@@ -9,7 +9,6 @@ $rating-colour: hsl(0, 50%, 100%);
 .movie {
   &__wrapper {
     margin: 5px 0;
-    position: relative;
     text-align: center;
     margin: 5px;
     width: auto;
@@ -17,9 +16,14 @@ $rating-colour: hsl(0, 50%, 100%);
     max-width: 50%;
   }
 
+  &__poster-wrapper {
+    position: relative;
+    width: auto;
+  }
+
   &__poster {
     height: 100%;
-    border-radius: 10px;
+    border-radius: 5px;
     max-height: 30vh;
   }
 
@@ -27,6 +31,7 @@ $rating-colour: hsl(0, 50%, 100%);
     font-size: 16px;
     text-transform: uppercase;
     font-weight: lighter;
+    margin: 10px 10px 0;
   }
 
   &__rating {
