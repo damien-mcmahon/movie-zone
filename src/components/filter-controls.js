@@ -11,13 +11,14 @@ const FilterControls = ({
   rating,
   selectedGenres, 
 }) => {
-    const [{showFilters}, setState] = useState({showFilters: false});
+    const [{showFilters}, setState] = useState({showFilters: true});
 
     return (
-    <div className="filter-controls__wrapper">
+      <div className={`filter-controls__wrapper --${showFilters ? 'open' : 'closed'}`}>
       <button className="filter-controls__toggle-options" onClick={() => setState({showFilters: ! showFilters})}>
       MENU
       </button>
+
       {selectedGenres.length > 0 &&
         <div className="filter-control__set-filters">
           <h2>Showing Films with the genre of </h2>
@@ -46,19 +47,22 @@ const FilterControls = ({
       {showFilters &&
         <div className="filter-controls__add-filters">
           <div className="filter-controls__genre-filters">
-            <h3>Genres</h3>
-            {genres.map(({name, id}) => (
-              <div key={name} className="filter-controls__genre">
-                <label htmlFor={name}>
-                  <input type="checkbox" id={name} onClick={() => onAddGenre({name, id})} />
-                  {name}
-                </label>
-              </div>
-            ))}
+            <h3 className="filter-controls__section-header">Genres</h3>
+
+            <div className="filter-controls__inputs-wrapper">
+              {genres.map(({name, id}) => (
+                <div key={name} className="filter-controls__genre">
+                  <label htmlFor={name}>
+                    <input className="filter-controls__genre-checkbox" type="checkbox" id={name} onClick={() => onAddGenre({name, id})} />
+                    {name}
+                  </label>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="filter-controls__rating-filter">
-            <h3>Rating</h3>
+            <h3 className="filter-controls__section-header">Rating</h3>
             <Rating
               currentRating={rating}
               onClearRating={onClearRating}
